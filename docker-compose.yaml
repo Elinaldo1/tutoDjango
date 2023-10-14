@@ -1,0 +1,42 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: python:3
+    # depends_on:
+    #   - db
+    env_file:
+      - .env
+    # environment:
+      # - Nome e valor da variavel de ambiente, aqui pego as var do file .env com en_file
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: python manage.py runserver 0.0.0.0:8000
+
+    networks:
+      - my-network
+
+  # O service db é caso queira criar um bd junto com o service web, pra este caso utilizo bd externo(conteiner)
+  # db:
+  #   image: mcr.microsoft.com/mssql/server:2019-latest
+
+  #   environment:
+  #     SA_PASSWORD: password
+  #     ACCEPT_EULA: Y
+  #   ports:
+  #     - "4433:1433"
+  #   volumes:
+  #     - db_data:/var/opt/mssql
+  #   networks:
+  #     - webnet
+
+networks:
+  my-network:
+    external:
+      name: my-network
+
+volumes:
+  db_data:
+

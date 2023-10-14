@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- {% for user in users %}
+  <button type="button" onclick="teste('User {{ user.id }}: {{ user.username }}')">
+          User {{ user.id }}: {{ user.username }}
+        </button>
+
+    {% endfor %} -->
+    
+    <div class="row gap-2 ps-5 pb-5" >
+      
+      {% for operation in operations %}
+      
+          <a href="{% url 'home-blog' %}" class="card card-operation p-2" style="width: 18rem; text-decoration: none;">
+            <h4>{{operation.operacao}}</h4>
+            <img src="{% static 'blog/foto.png' %}" class="card-img-top opacity-75" alt="...">
+            <div class="card-body">
+              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+              <span class="badge bg-warning rounded-pill">14 - 20%</span>
+              <span class="badge bg-danger rounded-pill">14 - 20%</span>
+              <span class="badge bg-success rounded-pill">14 - 20%</span>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+{% endblock content %}
+      

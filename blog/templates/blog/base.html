@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'blog/style-drawer.css' %}"> -->
+
+        
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css"
+        />
+
+        <style>
+             html {
+                scrollbar-width: thin;
+                scrollbar-color: black transparent;
+            }
+            
+            html::-webkit-scrollbar {
+                width: 3px;
+                height: 2px; /* A altura só é vista quando a rolagem é horizontal */
+            }
+            
+            html::-webkit-scrollbar-track {
+                background: green;
+                padding: 2px;
+            }
+            
+            html::-webkit-scrollbar-thumb {
+                border-radius: 50px;
+                background-color: #ffff;
+            }
+
+        </style>
+
+        
+        {% if title %}
+        <title>Django Blog -  {{title}}</title>
+        {% else %}
+        <title>Django blog</title>
+        {% endif %}
+    </head>
+    <body>
+        <!-- <div class="drawer-container">
+            <a class="drawer-item-menu" href="#">
+                <i class="ph-bold ph-house"></i>
+                <span class="drawer-tite-item-menu">
+                    Operações
+                </span>
+            </a>
+            <a class="drawer-item-menu" href="#">
+                <i class="ph-bold ph-house"></i>
+                <span class="drawer-tite-item-menu">
+                    Operações
+                </span>
+            </a>
+            <a class="drawer-item-menu" href="#">
+                <i class="ph-bold ph-house"></i>
+                <span class="drawer-tite-item-menu">
+                    Operações
+                </span>
+            </a>
+        </div> -->
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-steel fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand me-5" href="{% url 'home-blog' %}">Django Blog</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="navbar-nav me-auto">
+                            <a class="nav-item nav-link" href="{% url 'operation' %}">Operações</a>
+                            <!-- <a class="nav-item nav-link" href="{% url 'home-blog' %}">Frentes</a> -->
+                            <a class="nav-item nav-link" href="{% url 'about-blog' %}">About</a>
+                            <p>
+                                <input type="button" value="Criar PDF" id="btnImprimir" onclick="testes('')" />
+                            </p>
+                        </div>
+                        <!-- Navbar Right Side -->
+                        <div class="navbar-nav">
+                            {% if user.is_authenticated %}
+
+                                    <p>{{ user.username }}</p>
+                                    <a class="nav-item nav-link" href="{% url 'profile' %}">
+                                        
+                                    Profile</a>
+                                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main role="main" class="container-fluid" id="particles-js">
+            <div class="row">
+                <div class="row">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" >
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% block content %}{% endblock %}
+                </div>
+                <!-- <div class="col">
+                    <h3>FRENTE N</h3>
+                    <div class="content-section">
+                        <h3>Categoria</h3>
+                        <p class='text-muted'>You can put any information here you'd like.
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                                <li class="list-group-item list-group-item-light">Announcements</li>
+                                <li class="list-group-item list-group-item-light">Calendars</li>
+                                <li class="list-group-item list-group-item-light">etc</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div> -->
+
+            </div>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="{% static 'blog/js/script.js' %}" ></script>
+        <script src="{% static 'blog/js/app.js' %}" ></script>
+        <script src="{% static 'blog/js/particles.js' %}" ></script>
+        <script>
+            function testes(content) {
+                // console.log(content);
+                // console.log('cont')
+                var minhaTabela = document.getElementById('particles-js').innerHTML;
+                console.log(minhaTabela);
+                var style = "<style>";
+                style = style + "table {width: 100%;font: 20px Calibri;}";
+                style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+                style = style + "padding: 2px 3px;text-align: center;}";
+                style = style + "</style>";
+                // CRIA UM OBJETO WINDOW
+                var win = window.open('', '', 'height=700,width=700');
+                win.document.write('<html><head>');
+                win.document.write('<title>Empregados</title>');   // <title> CABEÇALHO DO PDF.
+                win.document.write(style);                                     // INCLUI UM ESTILO NA TAB HEAD
+                win.document.write('</head>');
+                win.document.write('<body>');
+                win.document.write(minhaTabela);                          // O CONTEUDO DA TABELA DENTRO DA TAG BODY
+                win.document.write('</body></html>');
+                win.document.close(); 	                                         // FECHA A JANELA
+                win.print();                                                            // IMPRIME O CONTEUDO
+            }
+
+        </script>
+    </body>
+</html>

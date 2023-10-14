@@ -1,0 +1,202 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <!-- {% for user in users %}
+        <button type="button" onclick="teste('User {{ user.id }}: {{ user.username }}')">
+          User {{ user.id }}: {{ user.username }}
+        </button>
+
+    {% endfor %} -->
+
+
+    {% for post in posts %}
+        <!-- <details>
+    
+                <summary>
+                    <strong>
+                        {{ post.title }}
+                    </strong>
+                </summary>
+            <p>Postador por {{ post.author }} em {{ post.date }}</p>
+            <p>{{post.content }}</p>
+
+        </details> -->
+<!-- 
+           <article class="media content-section col">
+               <div class="media-body">
+                 <div class="article-metadata">
+                   <a class="mr-2" href="#">{{ post.author }}</a>
+                   <small class="text-muted">{{ post.date | date:"d F, Y" }}</small>
+                 </div>
+                 <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                 <p class="article-content">{{ post.content }}</p>
+               </div>
+             </article> -->
+             
+ 
+          <div class="col" >
+            <div class="content-section" style="background-color: #038C45;">
+              <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+
+                <h3 style = 'color: aliceblue; text-align: center;' >FRENTE N</h3>
+                <div>
+
+                  <span class="badge border border-warning-subtle rounded-pill">14 - 20%</span>
+                  <span class="badge border border-4 border-danger-subtle rounded-pill">14 - 20%</span>
+                  <span class="badge bg-success rounded-pill">14 - 20%</span>
+                </div>
+              </div>
+                <div class="content-section">
+                    <h5>Categoria</h5>
+                    <span class="badge bg-warning rounded-pill">14 - 20%</span>
+                    <span class="badge bg-danger rounded-pill">14 - 20%</span>
+                    <span class="badge bg-success rounded-pill">14 - 20%</span>
+                    <!-- <p class='text-muted'>You can put any information here you'd like.
+                    </p> -->
+                        <!-- <ul class="list-group">
+                        <li class="list-group-item list-group-item-light">
+                            <span>🟢</span>
+                            <span>255</span>
+                            <span>Manutencao Mecanica</span>
+                            <span>00:10:00</span>
+                        </li>
+                        <li class="list-group-item list-group-item-light">Announcements</li>
+                        <li class="list-group-item list-group-item-light">Calendars</li>
+                        <li class="list-group-item list-group-item-light">etc</li>
+                        </ul> -->
+                        <table class="table table-hover">
+                            <!-- <thead>
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col">FROTA</th>
+                                <th scope="col">MOTIVO</th>
+                                <th scope="col">TEMPO</th>
+                              </tr>
+                            </thead> -->
+                            <tbody>
+                              <tr>
+                                <th scope="row">🟢</th>
+                                <td>255</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">🟢</th>
+                                <td>255</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">🟢</th>
+                                <td >255</td>
+                                <td >255</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                 </div>
+                        
+                <div class="content-section">
+                          <h5>Categoria</h5>
+                          <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              <span class="badge bg-primary rounded-pill">14</span>
+                              <span >ddddddddddddddddd</span>
+                              <span >ddddddddddddddddd</span>
+                              <span >ddddddddddddddddd</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              <span class="badge bg-primary rounded-pill">14</span>
+                              <span >ddddddddddddddddd</span>
+                              <span >ddddddddddddddddd</span>
+                              <span >ddddddddddddddddd</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              <span class="badge bg-primary rounded-pill">14</span>
+                              <span >ddddddddddddddddd</span>
+                              <span >ddddddddddddddddd</span>
+                            </li>
+       
+                          </ul>
+                </div>
+
+                <div class="content-section">
+
+                  <details>
+                    <summary>
+
+                      <h5 class="col" >Categoria</h5>
+                    </summary>
+                    <!-- <p class='text-muted'>You can put any information here you'd like.
+                    </p> -->
+                    <!-- <ul class="list-group">
+                      <li class="list-group-item list-group-item-light">
+                        <span>🟢</span>
+                            <span>255</span>
+                            <span>Manutencao Mecanica</span>
+                            <span>00:10:00</span>
+                        </li>
+                        <li class="list-group-item list-group-item-light">Announcements</li>
+                        <li class="list-group-item list-group-item-light">Calendars</li>
+                        <li class="list-group-item list-group-item-light">etc</li>
+                      </ul> -->
+                        <table class="table table-hover">
+                            <thead>
+                              <!-- <tr>
+                                <th scope="col"></th>
+                                <th scope="col">FROTA</th>
+                                <th scope="col">MOTIVO</th>
+                                <th scope="col">TEMPO</th>
+                              </tr>
+                            </thead> -->
+                            <tbody>
+                              <a href="#">
+                                <tr>
+                                  
+                                  <th scope="row">
+                                    <span class="badge bg-warning rounded-pill">
+                                      2
+                                    </span>
+  
+                                  </th>
+                                  <td>255</td>
+                                  <td>Ottodfdf</td>
+                                  <td>@mdo</td>
+                                </tr>
+                              </a>
+                              <tr>
+                                <th scope="row">
+                                  <span class="badge bg-success rounded-pill text-success">
+                                    2
+                                  </span>
+                                </th>
+                                <td>255</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <span class="badge bg-danger rounded-pill text-danger">
+                                    2
+                                  </span>
+                                </th>
+                                <td >255</td>
+                                <td >255</td>
+                                <td>@twitter</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                  </details>
+
+
+                          <details open>
+                            <summary>resumo</summary>
+                            <span class="badge bg-warning rounded-pill">14 - 20%</span>
+                            <span class="badge bg-danger rounded-pill">14 - 20%</span>
+                            <span class="badge bg-success rounded-pill">14 - 20%</span>
+                          </details>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock content %}

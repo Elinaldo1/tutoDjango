@@ -1,0 +1,31 @@
+Passos para executar procedure
+
+ref: https://dev.to/adii9/stored-procedures-and-django-a-match-made-in-performance-heaven-1fi9#:~:text=In%20Django%2C%20you%20can%20use,and%20pass%20any%20required%20arguments.
+
+from django.db import connection
+
+with connection.cursor() as cursor:
+    cursor.callproc('last_log_agr_by_fleet')
+    results = cursor.fetchall()
+
+exemplo de retorno dos dados(tuplas):
+
+[    ('Alice', 'alice@example.com', 25),    ('Bob', 'bob@example.com', 30),    ('Charlie', 'charlie@example.com', 35)]
+
+
+retornar ultimo log de cada frota
+    select * from blog_logagricola l
+    where id  = (
+        select 
+            max(ID)
+        from blog_logagricola l2
+        where l2.fleetid_id = l.fleetid_id
+    )
+
+    select * from blog_logagricola l
+    where id in (
+        select 
+            max(ID)
+        from blog_logagricola
+        group by fleetid_id
+    )

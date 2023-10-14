@@ -1,0 +1,126 @@
+body {
+    background: #EAFAF3;
+    color: #333333;
+    margin-top: 5rem;
+    padding: 0;
+    box-sizing: border-box;
+
+  }
+
+  a {
+    color: none;
+    text-decoration: none; /* no underline */
+  }
+
+ html {
+    scrollbar-width: thin;
+    scrollbar-color: black transparent;
+  }
+  
+ html::-webkit-scrollbar {
+    width: 3px;
+    height: 3px; /* A altura só é vista quando a rolagem é horizontal */
+  }
+  
+ html::-webkit-scrollbar-track {
+    background: transparent;
+    padding: 2px;
+  }
+  
+ html::-webkit-scrollbar-thumb {
+    background-color: #000;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    background-color: #088c47;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    background: #EAFAF3;
+    /* background: #ffffff; */
+    padding: 10px 20px;
+    /* border: 1px solid #dddddd; */
+    border-radius: 8px;
+    margin-bottom: 2px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+
+  .col {
+    background-color: none;
+  }
+
+  .card-operation:hover {
+    cursor: pointer;
+    transition: all 0.3s;
+    /* box-shadow: 1px 5px 8px #01a5b1; */
+    padding: 1rem;
+    box-shadow: 1px 5px 8px #131e2f;
+    /* background: #01a5b1; */
+    background-image: linear-gradient(to bottom, white, white, #088c47);
+  }

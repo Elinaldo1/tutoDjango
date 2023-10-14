@@ -1,0 +1,58 @@
+[
+  {
+    "codigo": 1,
+    "operacao": "PLANTIO CANA"
+  },
+  {
+    "codigo": 2,
+    "operacao": "COLHEITA CANA CRUA"
+  },
+  {
+    "codigo": 3,
+    "operacao": "PLANTIO SOJA"
+  },
+  {
+    "codigo": 4,
+    "operacao": "COLHEITA SOJA"
+  },
+  {
+    "codigo": 7,
+    "operacao": "SEM LOCACAO"
+  },
+  {
+    "codigo": 8,
+    "operacao": "APLICACAO"
+  },
+  {
+    "codigo": 9,
+    "operacao": "CTT"
+  },
+  {
+    "codigo": 10,
+    "operacao": "TRATOS CULTURAIS"
+  },
+  {
+    "codigo": 11,
+    "operacao": "PLANTIO IRRIGADO"
+  },
+  {
+    "codigo": 12,
+    "operacao": "PREPARO"
+  },
+  {
+    "codigo": 13,
+    "operacao": "FERTIRRIGACAO"
+  },
+  {
+    "codigo": 14,
+    "operacao": "HERBICIDA"
+  },
+  {
+    "codigo": 15,
+    "operacao": "IRRIGACAO SALVAMENTO"
+  },
+  {
+    "codigo": 16,
+    "operacao": "VINHACA LOCALIZADA"
+  }
+]

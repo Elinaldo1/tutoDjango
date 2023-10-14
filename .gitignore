@@ -1,0 +1,14 @@
+.env
+
+# Ignore a pasta de ambiente virtual (venv)
+venv/
+
+# Ignore a pasta de byte-compiled files do Python
+__pycache__/
+
+mysite/Lib/
+mysite/Include/
+mysite/Scripts/
+mysite/Share/
+
+pyvenv.cfg
