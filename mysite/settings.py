@@ -100,15 +100,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "coa",
-#         "USER": "postgres",
-#         "PASSWORD": "a1234567-",
-#         "HOST": "localhost",
-#         "PORT": "5433",
+#         "NAME": os.getenv("DB_NAME"),
+#         "USER": os.getenv("DB_USER"),
+#         "PASSWORD": os.getenv("DB_PASSWORD"),
+#         "HOST": os.getenv("DB_HOST", "localhost"),
+#         "PORT": os.getenv("DB_PORT", "5433"),
 #     }
 # }
 
@@ -116,12 +115,11 @@ DATABASES = {
     "default": {
         "ENGINE": "mssql",
         # 'Trusted_Connection': 'no',
-        "NAME": os.getenv("MSSQL_DB"),
-        "USER": os.getenv("MSSQL_USER"),
-        "PASSWORD": os.getenv("MSSQL_PASSWORD"),
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
         "HOST": os.getenv("DB_HOST", "localhost"),
-        "PORT": "1433",
-        # "OPTIONS": {"driver": pyodbc.drivers()[0]},
+        "PORT": os.getenv("DB_PORT", "1433"),
         "OPTIONS": {
             "driver": os.getenv("MSSQL_DRIVER","ODBC Driver 18 for SQL Server"),
             'extra_params': "Encrypt=yes;TrustServerCertificate=yes"
@@ -129,16 +127,6 @@ DATABASES = {
     },
 }
 
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'djongo',
-#             'NAME': 'your-db-name',
-#             'ENFORCE_SCHEMA': False,
-#             'CLIENT': {
-#                 'host': 'mongodb+srv://devhouse:devhouse@devhouse.q7nqg.mongodb.net/coa?retryWrites=true&w=majority'
-#             }  
-#         }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
